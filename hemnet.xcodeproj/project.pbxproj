@@ -13,6 +13,7 @@
 		CEAB4B1A20D509EF00A66777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1920D509EF00A66777 /* Assets.xcassets */; };
 		CEAB4B1D20D509EF00A66777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1B20D509EF00A66777 /* LaunchScreen.storyboard */; };
 		CEAB4B2820D509EF00A66777 /* hemnetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B2720D509EF00A66777 /* hemnetTests.swift */; };
+		CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3520D50AF700A66777 /* Listings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		CEAB4B2320D509EF00A66777 /* hemnetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hemnetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAB4B2720D509EF00A66777 /* hemnetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hemnetTests.swift; sourceTree = "<group>"; };
 		CEAB4B2920D509F000A66777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEAB4B3520D50AF700A66777 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +79,8 @@
 		CEAB4B1120D509EE00A66777 /* hemnet */ = {
 			isa = PBXGroup;
 			children = (
-				CEAB4B1220D509EE00A66777 /* AppDelegate.swift */,
-				CEAB4B1420D509EE00A66777 /* ViewController.swift */,
-				CEAB4B1620D509EE00A66777 /* Main.storyboard */,
+				CEAB4B3320D50A5900A66777 /* src */,
 				CEAB4B1920D509EF00A66777 /* Assets.xcassets */,
-				CEAB4B1B20D509EF00A66777 /* LaunchScreen.storyboard */,
 				CEAB4B1E20D509EF00A66777 /* Info.plist */,
 			);
 			path = hemnet;
@@ -94,6 +93,42 @@
 				CEAB4B2920D509F000A66777 /* Info.plist */,
 			);
 			path = hemnetTests;
+			sourceTree = "<group>";
+		};
+		CEAB4B3220D50A5000A66777 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B1420D509EE00A66777 /* ViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		CEAB4B3320D50A5900A66777 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B1220D509EE00A66777 /* AppDelegate.swift */,
+				CEAB4B3720D50AFD00A66777 /* Model */,
+				CEAB4B3420D50A6100A66777 /* Storyboard */,
+				CEAB4B3220D50A5000A66777 /* VC */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CEAB4B3420D50A6100A66777 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B1B20D509EF00A66777 /* LaunchScreen.storyboard */,
+				CEAB4B1620D509EE00A66777 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CEAB4B3720D50AFD00A66777 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B3520D50AF700A66777 /* Listings.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAB4B1520D509EE00A66777 /* ViewController.swift in Sources */,
+				CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */,
 				CEAB4B1320D509EE00A66777 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
 				INFOPLIST_FILE = hemnet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,6 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
 				INFOPLIST_FILE = hemnet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

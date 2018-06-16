@@ -10,27 +10,65 @@ import XCTest
 @testable import hemnet
 
 class hemnetTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
+
+    func testJSONDecode() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let decoder = JSONDecoder()
+        do {
+            let container = try decoder.decode(Listings.self, from: validJsonData)
+
+            XCTAssertEqual(container.listings.count, 2)
+
+            let test1 = container.listings.first!
+            XCTAssertEqual(test1.listingType, .active)
+            XCTAssertEqual(test1.id, "1234567890")
+            XCTAssertEqual(test1.askingPrice, "2 650 000 kr")
+            XCTAssertEqual(test1.monthlyFee, "1 498 kr/mån")
+            XCTAssertEqual(test1.municipality, "Gällivare kommun")
+            XCTAssertEqual(test1.location, "Heden")
+            XCTAssertEqual(test1.daysOnHemnet, 1)
+            XCTAssertEqual(test1.livingSize, 120)
+            XCTAssertEqual(test1.numberOfRooms, 5)
+            XCTAssertEqual(test1.streetAddress, "Mockvägen 1") // haha!
+            XCTAssertEqual(test1.thumbnail, URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg"))
+
+            let test2 = container.listings.last!
+            XCTAssertEqual(test2.listingType, .deactivated)
+        } catch {
+            XCTFail("JSON decoding failed: \(error)")
         }
     }
-    
+
 }
+
+private let validJsonData = validJson.data(using: .utf8)!
+private let validJson = """
+{
+"listings": [{
+"listingType": "ActivePropertyListing",
+"id": "1234567890",
+"askingPrice": "2 650 000 kr",
+"monthlyFee": "1 498 kr/mån",
+"municipality": "Gällivare kommun",
+"area": "Heden",
+"daysOnHemnet": 1,
+"livingArea": 120,
+"numberOfRooms": 5,
+"streetAddress": "Mockvägen 1",
+"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg"
+},
+{
+"listingType": "DeactivatedPropertyListing",
+"id": "1234567892",
+"askingPrice": "3 150 000 kr",
+"monthlyFee": "2 298 kr/mån",
+"municipality": "Östersunds kommun",
+"area": "Frösön",
+"daysOnHemnet": 12,
+"livingArea": 79,
+"numberOfRooms": 5,
+"streetAddress": "Mockvägen 3",
+"thumbnail": "https://commons.wikimedia.org/wiki/File:Tryckeribolagets_hus_Sundsvall_17.JPG"
+}]}
+"""
