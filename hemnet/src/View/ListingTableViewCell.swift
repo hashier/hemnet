@@ -27,27 +27,7 @@ class ListingTableViewCell: UITableViewCell {
     // MARK: - IVar
     internal var listing: Listing? {
         didSet {
-            guard let listing = listing else { return }
-
-            let url = listing.thumbnail
-            titleImage?.sd_setImage(with: url, completed: { (_, _, _, _) in
-                self.setNeedsLayout()
-            })
-
-            title.text = listing.streetAddress
-            location.text = listing.location
-            price.text = listing.askingPrice
-            size.text = "\(String(listing.livingSize)) m²"
-            rooms.text = "\(String(listing.numberOfRooms)) rum"
-            monthlyCost.text = listing.monthlyFee
-            // Don't do this in production code!
-            let days: String
-            if listing.daysOnHemnet == 1 {
-                days = "dag"
-            } else {
-                days = "dagar"
-            }
-            onlineSince.text = "\(String(listing.daysOnHemnet)) \(days)"
+            updateCell()
         }
     }
 
@@ -56,6 +36,52 @@ class ListingTableViewCell: UITableViewCell {
         super.prepareForReuse()
 
         imageView?.sd_cancelCurrentImageLoad()
+
+        setAlpha(to: 1)
+    }
+
+    func updateCell() {
+        guard let listing = listing else { return }
+
+        let url = listing.thumbnail
+        titleImage?.sd_setImage(with: url, completed: { (_, _, _, _) in
+            self.setNeedsLayout()
+        })
+
+        title.text = listing.streetAddress
+        location.text = listing.location
+        price.text = listing.askingPrice
+        size.text = "\(String(listing.livingSize)) m²"
+        rooms.text = "\(String(listing.numberOfRooms)) rum"
+        monthlyCost.text = listing.monthlyFee
+        // Don't do this in production code!
+        let days: String
+        if listing.daysOnHemnet == 1 {
+            days = "dag"
+        } else {
+            days = "dagar"
+        }
+        onlineSince.text = "\(String(listing.daysOnHemnet)) \(days)"
+
+        if listing.listingType == .deactivated {
+            setAlpha(to: 0.5)
+            price.alpha = 1
+            price.textColor = UIColor.orange
+            price.text = "Borttagen före visning"
+            size.text = ""
+            rooms.text = ""
+        }
+    }
+
+    func setAlpha(to value: CGFloat) {
+        titleImage.alpha = value
+        title.alpha = value
+        location.alpha = value
+        price.alpha = value
+        size.alpha = value
+        rooms.alpha = value
+        monthlyCost.alpha = value
+        onlineSince.alpha = value
     }
 
 }

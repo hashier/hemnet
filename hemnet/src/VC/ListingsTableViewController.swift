@@ -14,6 +14,7 @@ class ListingsTableViewController: UITableViewController {
     var listings: [Listing]? {
         didSet {
             DispatchQueue.main.async {
+                self.updateTitle()
                 self.tableView.reloadData()
             }
         }
@@ -52,7 +53,7 @@ extension ListingsTableViewController {
     private func updateTitle() {
         var string = "Listings"
         if let listings = listings {
-            string = "Listings \(listings.count)"
+            string = "\(listings.count) listings"
         }
         DispatchQueue.main.async {
             self.title = string
