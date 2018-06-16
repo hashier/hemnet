@@ -15,6 +15,10 @@
 		CEAB4B2820D509EF00A66777 /* hemnetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B2720D509EF00A66777 /* hemnetTests.swift */; };
 		CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3520D50AF700A66777 /* Listings.swift */; };
 		CEAB4B3A20D5158100A66777 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAB4B3920D5158100A66777 /* SDWebImage.framework */; };
+		CEAB4B3D20D5192600A66777 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3C20D5192600A66777 /* Result.swift */; };
+		CEAB4B4020D5194400A66777 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3F20D5194400A66777 /* Constants.swift */; };
+		CEAB4B4220D5196E00A66777 /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4120D5196E00A66777 /* RESTClient.swift */; };
+		CEAB4B4420D51B7800A66777 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4320D51B7800A66777 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		CEAB4B2920D509F000A66777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAB4B3520D50AF700A66777 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		CEAB4B3920D5158100A66777 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		CEAB4B3C20D5192600A66777 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		CEAB4B3F20D5194400A66777 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CEAB4B4120D5196E00A66777 /* RESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
+		CEAB4B4320D51B7800A66777 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				CEAB4B1220D509EE00A66777 /* AppDelegate.swift */,
+				CEAB4B4520D520AF00A66777 /* Network */,
 				CEAB4B3720D50AFD00A66777 /* Model */,
 				CEAB4B3420D50A6100A66777 /* Storyboard */,
 				CEAB4B3220D50A5000A66777 /* VC */,
+				CEAB4B3E20D5193200A66777 /* Helper */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -141,6 +151,24 @@
 				CEAB4B3920D5158100A66777 /* SDWebImage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEAB4B3E20D5193200A66777 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B4320D51B7800A66777 /* Helper.swift */,
+				CEAB4B3C20D5192600A66777 /* Result.swift */,
+				CEAB4B3F20D5194400A66777 /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		CEAB4B4520D520AF00A66777 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B4120D5196E00A66777 /* RESTClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +292,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAB4B4020D5194400A66777 /* Constants.swift in Sources */,
+				CEAB4B4420D51B7800A66777 /* Helper.swift in Sources */,
 				CEAB4B1520D509EE00A66777 /* ViewController.swift in Sources */,
 				CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */,
+				CEAB4B3D20D5192600A66777 /* Result.swift in Sources */,
+				CEAB4B4220D5196E00A66777 /* RESTClient.swift in Sources */,
 				CEAB4B1320D509EE00A66777 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
