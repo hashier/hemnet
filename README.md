@@ -1,4 +1,4 @@
-hemnet mini app - by Christopher Loessl
+# hemnet mini app - by Christopher Loessl
 
 This app downloads a simple JSON file from the internet. It uses a Result<T> type to do all actions that can fail. It's the same idea as functional use a `maybe` type for the same purpose.
 For all the image handling I use `SDWebImage` which gives me cache handling of images without any extra code. I cancle image downloads in the `prepareForReuse()` function so it won't happen if the user scrolls fast that a slow image replaces a fast one that was requested at a later point in time.
