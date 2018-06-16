@@ -9,5 +9,5 @@
 import Foundation
 
 internal struct Constants {
-    static let url = "https://gist.githubusercontent.com/hashier/9a91511c20702219d47df91472eb0197/raw/2eb0b51629ea5a9bde89943083efc35edba4347f/listings.json"
+    static let url = "https://gist.githubusercontent.com/hashier/9a91511c20702219d47df91472eb0197/raw/e5897d24652e1321f39b3b7a1431068e0ee8f3c1/listings.json"
 }

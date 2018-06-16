@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CEAB4B1320D509EE00A66777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B1220D509EE00A66777 /* AppDelegate.swift */; };
-		CEAB4B1520D509EE00A66777 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B1420D509EE00A66777 /* ViewController.swift */; };
 		CEAB4B1820D509EE00A66777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1620D509EE00A66777 /* Main.storyboard */; };
 		CEAB4B1A20D509EF00A66777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1920D509EF00A66777 /* Assets.xcassets */; };
 		CEAB4B1D20D509EF00A66777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1B20D509EF00A66777 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,10 @@
 		CEAB4B4020D5194400A66777 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3F20D5194400A66777 /* Constants.swift */; };
 		CEAB4B4220D5196E00A66777 /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4120D5196E00A66777 /* RESTClient.swift */; };
 		CEAB4B4420D51B7800A66777 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4320D51B7800A66777 /* Helper.swift */; };
+		CEAB4B4720D53AAB00A66777 /* ListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4620D53AAB00A66777 /* ListingsTableViewController.swift */; };
+		CEAB4B4D20D53B4C00A66777 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4B20D53B4C00A66777 /* ListingTableViewCell.swift */; };
+		CEAB4B4E20D53B4C00A66777 /* ListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B4C20D53B4C00A66777 /* ListingTableViewCell.xib */; };
+		CEAB4B5020D53E6100A66777 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B4F20D53E6100A66777 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +37,6 @@
 /* Begin PBXFileReference section */
 		CEAB4B0F20D509EE00A66777 /* hemnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hemnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAB4B1220D509EE00A66777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEAB4B1420D509EE00A66777 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEAB4B1720D509EE00A66777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEAB4B1920D509EF00A66777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEAB4B1C20D509EF00A66777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +50,10 @@
 		CEAB4B3F20D5194400A66777 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEAB4B4120D5196E00A66777 /* RESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
 		CEAB4B4320D51B7800A66777 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		CEAB4B4620D53AAB00A66777 /* ListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsTableViewController.swift; sourceTree = "<group>"; };
+		CEAB4B4B20D53B4C00A66777 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
+		CEAB4B4C20D53B4C00A66777 /* ListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingTableViewCell.xib; sourceTree = "<group>"; };
+		CEAB4B4F20D53E6100A66777 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +116,8 @@
 		CEAB4B3220D50A5000A66777 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				CEAB4B1420D509EE00A66777 /* ViewController.swift */,
+				CEAB4B4620D53AAB00A66777 /* ListingsTableViewController.swift */,
+				CEAB4B4F20D53E6100A66777 /* DetailViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -119,10 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				CEAB4B1220D509EE00A66777 /* AppDelegate.swift */,
-				CEAB4B4520D520AF00A66777 /* Network */,
 				CEAB4B3720D50AFD00A66777 /* Model */,
+				CEAB4B4A20D53AC900A66777 /* View */,
 				CEAB4B3420D50A6100A66777 /* Storyboard */,
 				CEAB4B3220D50A5000A66777 /* VC */,
+				CEAB4B4520D520AF00A66777 /* Network */,
 				CEAB4B3E20D5193200A66777 /* Helper */,
 			);
 			path = src;
@@ -169,6 +177,15 @@
 				CEAB4B4120D5196E00A66777 /* RESTClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		CEAB4B4A20D53AC900A66777 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B4B20D53B4C00A66777 /* ListingTableViewCell.swift */,
+				CEAB4B4C20D53B4C00A66777 /* ListingTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +272,7 @@
 			files = (
 				CEAB4B1D20D509EF00A66777 /* LaunchScreen.storyboard in Resources */,
 				CEAB4B1A20D509EF00A66777 /* Assets.xcassets in Resources */,
+				CEAB4B4E20D53B4C00A66777 /* ListingTableViewCell.xib in Resources */,
 				CEAB4B1820D509EE00A66777 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,9 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAB4B5020D53E6100A66777 /* DetailViewController.swift in Sources */,
+				CEAB4B4D20D53B4C00A66777 /* ListingTableViewCell.swift in Sources */,
+				CEAB4B4720D53AAB00A66777 /* ListingsTableViewController.swift in Sources */,
 				CEAB4B4020D5194400A66777 /* Constants.swift in Sources */,
 				CEAB4B4420D51B7800A66777 /* Helper.swift in Sources */,
-				CEAB4B1520D509EE00A66777 /* ViewController.swift in Sources */,
 				CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */,
 				CEAB4B3D20D5192600A66777 /* Result.swift in Sources */,
 				CEAB4B4220D5196E00A66777 /* RESTClient.swift in Sources */,

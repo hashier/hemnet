@@ -11,7 +11,9 @@ import Foundation
 internal class RESTClient {
 
     lazy var session: URLSession = {
-        return URLSession(configuration: URLSessionConfiguration.default)
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        return URLSession(configuration: config)
     }()
 
     internal func getListings(_ completion: @escaping (Result<Listings>) -> Void) {
