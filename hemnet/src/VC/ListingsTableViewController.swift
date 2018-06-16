@@ -11,6 +11,7 @@ import UIKit
 class ListingsTableViewController: UITableViewController {
 
     // MARK: - IVar
+    var currentDesign: Design = .old
     var listings: [Listing]? {
         didSet {
             DispatchQueue.main.async {
@@ -27,6 +28,12 @@ class ListingsTableViewController: UITableViewController {
         updateTitle()
         tableView.tableFooterView = UIView(frame: .zero)
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Toggle layout",
+            style: .plain,
+            target: self,
+            action: #selector(didTapToggle(_:)))
+
         let listingTableViewCellNib = UINib(nibName: "ListingTableViewCell", bundle: nil)
         tableView.register(listingTableViewCellNib, forCellReuseIdentifier: ListingTableViewCell.listingTableViewCellIdent)
     }
@@ -34,6 +41,13 @@ class ListingsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        getListings()
+    }
+}
+
+// MARK: - Private Methods
+internal extension ListingsTableViewController {
+    private func getListings() {
         RESTClient().getListings { resultContainer in
             switch resultContainer {
             case let .success(container):
@@ -46,10 +60,7 @@ class ListingsTableViewController: UITableViewController {
             }
         }
     }
-}
 
-// MARK: - Methods
-extension ListingsTableViewController {
     private func updateTitle() {
         var string = "Listings"
         if let listings = listings {
@@ -58,6 +69,26 @@ extension ListingsTableViewController {
         DispatchQueue.main.async {
             self.title = string
         }
+    }
+
+    private func toggleDesign() {
+        if currentDesign == .new {
+            currentDesign = .old
+        } else {
+            currentDesign = .new
+        }
+
+        let set = IndexSet(integer: 0)
+        tableView.beginUpdates()
+        tableView.reloadSections(set, with: .automatic)
+        tableView.endUpdates()
+    }
+}
+
+// MARK: - Objc / Selector methods
+internal extension ListingsTableViewController {
+    @objc private func didTapToggle(_ sender: UIBarButtonItem) {
+        toggleDesign()
     }
 }
 
@@ -74,6 +105,7 @@ internal extension ListingsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListingTableViewCell.listingTableViewCellIdent, for: indexPath) as! ListingTableViewCell
 
+        cell.design = currentDesign
         cell.listing = listings?[indexPath.row]
 
         return cell

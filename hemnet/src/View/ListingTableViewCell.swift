@@ -9,6 +9,11 @@
 import UIKit
 import SDWebImage
 
+enum Design {
+    case new
+    case old
+}
+
 class ListingTableViewCell: UITableViewCell {
 
     // MARK: - Static
@@ -24,7 +29,10 @@ class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var monthlyCost: UILabel!
     @IBOutlet weak var onlineSince: UILabel!
 
+    @IBOutlet weak var sold: UIView!
+
     // MARK: - IVar
+    internal var design = Design.old
     internal var listing: Listing? {
         didSet {
             updateCell()
@@ -36,11 +44,22 @@ class ListingTableViewCell: UITableViewCell {
         super.prepareForReuse()
 
         imageView?.sd_cancelCurrentImageLoad()
-
-        setAlpha(to: 1)
+        common()
     }
 
-    func updateCell() {
+    override func awakeFromNib() {
+        common()
+    }
+
+    private func common() {
+        setAlpha(to: 1)
+        sold.isHidden = true
+    }
+}
+
+// MARK: - private methods
+internal extension ListingTableViewCell {
+    private func updateCell() {
         guard let listing = listing else { return }
 
         let url = listing.thumbnail
@@ -48,6 +67,7 @@ class ListingTableViewCell: UITableViewCell {
             self.setNeedsLayout()
         })
 
+        // Populate with data
         title.text = listing.streetAddress
         location.text = listing.location
         price.text = listing.askingPrice
@@ -63,7 +83,30 @@ class ListingTableViewCell: UITableViewCell {
         }
         onlineSince.text = "\(String(listing.daysOnHemnet)) \(days)"
 
-        if listing.listingType == .deactivated {
+        switch design {
+        case .old:
+            oldDesign()
+        case .new:
+            newDesign()
+        }
+    }
+
+    private func setAlpha(to value: CGFloat) {
+        titleImage.alpha = value
+        title.alpha = value
+        location.alpha = value
+        price.alpha = value
+        size.alpha = value
+        rooms.alpha = value
+        monthlyCost.alpha = value
+        onlineSince.alpha = value
+    }
+}
+
+// MARK: - Designs
+internal extension ListingTableViewCell {
+    private func oldDesign() {
+        if listing!.listingType == .deactivated { // It's a private method, so I know the calling places and they already checked that listing is !nil
             setAlpha(to: 0.5)
             price.alpha = 1
             price.textColor = UIColor.orange
@@ -73,15 +116,11 @@ class ListingTableViewCell: UITableViewCell {
         }
     }
 
-    func setAlpha(to value: CGFloat) {
-        titleImage.alpha = value
-        title.alpha = value
-        location.alpha = value
-        price.alpha = value
-        size.alpha = value
-        rooms.alpha = value
-        monthlyCost.alpha = value
-        onlineSince.alpha = value
+    private func newDesign() {
+        if listing!.listingType == .deactivated {
+            setAlpha(to: 0.5)
+            sold.isHidden = false
+        }
     }
 
 }
