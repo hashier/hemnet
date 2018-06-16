@@ -14,6 +14,7 @@
 		CEAB4B1D20D509EF00A66777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB4B1B20D509EF00A66777 /* LaunchScreen.storyboard */; };
 		CEAB4B2820D509EF00A66777 /* hemnetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B2720D509EF00A66777 /* hemnetTests.swift */; };
 		CEAB4B3620D50AF700A66777 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB4B3520D50AF700A66777 /* Listings.swift */; };
+		CEAB4B3A20D5158100A66777 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAB4B3920D5158100A66777 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		CEAB4B2720D509EF00A66777 /* hemnetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hemnetTests.swift; sourceTree = "<group>"; };
 		CEAB4B2920D509F000A66777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAB4B3520D50AF700A66777 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
+		CEAB4B3920D5158100A66777 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAB4B3A20D5158100A66777 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 				CEAB4B1120D509EE00A66777 /* hemnet */,
 				CEAB4B2620D509EF00A66777 /* hemnetTests */,
 				CEAB4B1020D509EE00A66777 /* Products */,
+				CEAB4B3820D5158100A66777 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +135,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CEAB4B3820D5158100A66777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB4B3920D5158100A66777 /* SDWebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +153,7 @@
 				CEAB4B0B20D509EE00A66777 /* Sources */,
 				CEAB4B0C20D509EE00A66777 /* Frameworks */,
 				CEAB4B0D20D509EE00A66777 /* Resources */,
+				CEAB4B3B20D515A400A66777 /* carthage */,
 			);
 			buildRules = (
 			);
@@ -226,6 +239,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CEAB4B3B20D515A400A66777 /* carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+			);
+			name = carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CEAB4B0B20D509EE00A66777 /* Sources */ = {
@@ -396,6 +428,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = hemnet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,6 +451,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8GFX23QE8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = hemnet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
