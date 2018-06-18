@@ -32,7 +32,11 @@ class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var sold: UIView!
 
     // MARK: - IVar
-    internal var design = Design.old
+    internal var design = Design.old {
+        didSet {
+            updateDesign()
+        }
+    }
     internal var listing: Listing? {
         didSet {
             updateCell()
@@ -83,12 +87,7 @@ internal extension ListingTableViewCell {
         }
         onlineSince.text = "\(String(listing.daysOnHemnet)) \(days)"
 
-        switch design {
-        case .old:
-            oldDesign()
-        case .new:
-            newDesign()
-        }
+        updateDesign()
     }
 
     private func setAlpha(to value: CGFloat) {
@@ -105,6 +104,17 @@ internal extension ListingTableViewCell {
 
 // MARK: - Designs
 internal extension ListingTableViewCell {
+    private func updateDesign() {
+        guard listing != nil else { return }
+        
+        switch design {
+        case .old:
+            oldDesign()
+        case .new:
+            newDesign()
+        }
+    }
+
     private func oldDesign() {
         if listing!.listingType == .deactivated { // It's a private method, so I know the calling places and they already checked that listing is !nil
             setAlpha(to: 0.5)
